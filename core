@@ -18,9 +18,10 @@ install() {
   #
   case $platform in
   darwin)
-    if [ "$arch" != "amd64" ]; then
-      log::error "[$(timestamp)] unsupport arch: $arch"
-      return 1
+    if [ "$arch" = "arm64" ]; then
+      # log::error "[$(timestamp)] unsupport arch: $arch"
+      # return 1
+      arch="amd64"
     fi
     ;;
   linux) ;;
@@ -109,7 +110,7 @@ install() {
   # config env
   local envs=$(
     cat <<-END
-TINYGOROOT=$TINYGOROOT
+export TINYGOROOT=$TINYGOROOT
 END
   )
   config::profile "# ZMICRO_TINYGO" "$envs"

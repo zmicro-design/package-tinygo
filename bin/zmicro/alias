@@ -9,11 +9,11 @@ help() {
   echo "  zmicro tinygo <args ...>"
   echo ""
 
-  tinygo --help
+  tinygo help
 }
 
 version() {
-  tinygo --version
+  tinygo version
 }
 
 core() {
